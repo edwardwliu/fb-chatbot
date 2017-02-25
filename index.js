@@ -27,18 +27,6 @@ app.get('/webhook/', function(req, res) {
 	res.send("Wrong token")
 })
 
-app.post('/webhook/', function(req, res) {
-	let messaging_events = req.body.entry[0].messaging
-	for (let i = 0; i < messaging_events.length; i++) {
-		let event = messaging_events[i]
-		let sender = event.sender.id
-		if (event.message && event.message.text) {
-			let text = event.message.text
-			sendText(sender, "Text echo: " + text.substring(0, 100))
-		}
-	}
-	res.sendStatus(200)
-})
 
 function sendText(sender, text) {
 	let messageData = {text: text}
@@ -59,8 +47,21 @@ function sendText(sender, text) {
 	})
 }
 
+
+app.post('/webhook/', function(req, res) {
+	let messaging_events = req.body.entry[0].messaging
+	for (let i = 0; i < messaging_events.length; i++) {
+		let event = messaging_events[i]
+		let sender = event.sender.id
+		if (event.message && event.message.text) {
+			let text = event.message.text
+			sendText(sender, "Text echo: " + text.substring(0, 100))
+		}
+	}
+	res.sendStatus(200)
+})
+
+
 app.listen(app.get('port'), function() {
 	console.log("running: port")
 })
-
-// EAAC6Oo4BiZAEBAIdWZCLsXohqy34nZBAmr6HH5akP2gZAfpKDi9gqr9jkYuZBao9DS7xCgSlcwdGEBy0IKTUWu8PW45tNN2kooJnjyHPLiBbRWZCuubY0IdPeeQg8UGmyNIl9Y6jDPLeorRZByHoSBXKgZBsaEoUxyO1kxxjKqIj9gZDZD
