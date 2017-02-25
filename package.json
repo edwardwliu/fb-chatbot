@@ -1,0 +1,20 @@
+{
+  "name": "fb-chatbot",
+  "version": "1.0.0",
+  "description": "fb/node chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "fb-chatbot"
+  },
+  "author": "Edward Liu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "request": "^2.79.0"
+  }
+}
