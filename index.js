@@ -12,7 +12,7 @@ app.user(bodyParser.urlenconded({extended: false}))
 app.user(bodyParser.json())
 
 // Routes
-app.get('/', function(req, res)) {
+app.get('/', function(req, res) {
 	res.send("Hi I am a chatbot")
 })
 
@@ -25,6 +25,6 @@ app.get('/webhook/', function(req, res) {
 	res.send("Wrong token")
 })
 
-app.listen(app.get('port'), function()) {
+app.listen(app.get('port'), function() {
 	console.log("running: port")
 })
