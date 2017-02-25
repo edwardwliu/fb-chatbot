@@ -27,7 +27,6 @@ app.get('/webhook/', function(req, res) {
 	res.send("Wrong token")
 })
 
-
 function sendText(sender, text) {
 	let messageData = {text: text}
 	request({
