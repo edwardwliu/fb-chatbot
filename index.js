@@ -8,8 +8,8 @@ const app = express()
 
 app.set('port', (process.env.PORT || 5000))
 
-app.user(bodyParser.urlenconded({extended: false}))
-app.user(bodyParser.json())
+app.use(bodyParser.urlenconded({extended: false}))
+app.use(bodyParser.json())
 
 // Routes
 app.get('/', function(req, res) {
